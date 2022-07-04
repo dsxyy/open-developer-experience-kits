@@ -112,7 +112,7 @@ project_dir: "/opt/smartedge"
 project_group: "{{ ansible_user }}"
 
 ## SR-IOV Network Operator
-sriov_network_operator_enable: true
+sriov_network_operator_enable: FALSE
 
 ## SR-IOV Network Operator configuration
 sriov_network_operator_configure_enable: true
@@ -209,11 +209,12 @@ sriov_networks:
     link_state: enable
 
 ## Enable OOT driver update for E810
-e810_driver_enable: True
+e810_driver_enable: FALSE
 
 ### Software Guard Extensions
 # SGX requires kernel 5.11+, SGX enabled in BIOS and access to PCC service
-sgx_enabled: "{{ false if ansible_product_name == 'MOROCITY' else true }}"
+# sgx_enabled: "{{ false if ansible_product_name == 'MOROCITY' else true }}"
+sgx_enabled: FALSE
 
 ## Install HWE Kernel for SGX
 install_hwe_kernel_enable: true
@@ -308,7 +309,8 @@ harbor_timeout_min: 5
 ## Platform attestation specific configurations
 
 # Install isecl attestation components (TA, ihub, isecl k8s controller and scheduler extension)
-platform_attestation_node: "{{ false if ansible_product_name == 'MOROCITY' else true }}"
+# platform_attestation_node: "{{ false if ansible_product_name == 'MOROCITY' else true }}"
+platform_attestation_node: FALSE
 
 # CMS hash from Intel-secl controller. Use following command:
 # kubectl exec -n isecl --stdin "$(kubectl get pod -n isecl -l app=cms -o jsonpath="{.items[0].metadata.name}")" -- cms tlscertsha384
