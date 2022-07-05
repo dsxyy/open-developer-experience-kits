@@ -12,7 +12,8 @@ _registry_port: "30003"
 _registry_host: "{{ hostvars[groups['controller_group'][0]]['ansible_host'] }}"
 _registry_ip_address: "{{ hostvars[groups['controller_group'][0]]['ansible_host'] }}"
 
-_git_repo_harbor: "https://github.com/goharbor/harbor-helm.git"
+# _git_repo_harbor: "https://github.com/goharbor/harbor-helm.git"
+_git_repo_harbor: "/tmp/harbor-helm/"
 _git_repo_dest_harbor: "{{ project_dir }}/harbor"
 
 _harbor_app_version: "v2.3.4"
